@@ -1,0 +1,699 @@
+<div class="sheet-ssss">
+  <div class="sheet-titlebar">
+    <div class="sheet-sigil">✦</div>
+    <div class="sheet-titletext">Stones, Scrolls, Swords, and Sorcery</div>
+  </div>
+
+<div class="sheet-top-fields">
+  <label><span>Name:</span><input type="text" name="attr_character_name"></label>
+  <label><span>Origin:</span><input type="text" name="attr_origin"></label>
+  <label class="sheet-level"><span>Level:</span><input type="number" name="attr_level" value="1"></label>
+
+  <label><span>Archetype:</span><input type="text" name="attr_archetype"></label>
+  <label><span>Pathway:</span><input type="text" name="attr_pathway"></label>
+  <label class="sheet-points"><span>Points:</span><input type="number" name="attr_points" value="0"></label>
+</div>
+
+  <div class="sheet-main-grid">
+    <div class="sheet-left">
+      <div class="sheet-stat-row">
+        <div class="sheet-stat">
+          <div class="sheet-stat-name">Stones</div>
+          <div class="sheet-stat-box"><input type="text" name="attr_stones" value="-3" readonly></div>
+          <div class="sheet-pips">
+            <label><input type="checkbox" name="attr_stones_pip6" value="1"><span>+3</span></label>
+            <label><input type="checkbox" name="attr_stones_pip5" value="1"><span>+2</span></label>
+            <label><input type="checkbox" name="attr_stones_pip4" value="1"><span>+1</span></label>
+            <label><input type="checkbox" name="attr_stones_pip3" value="1"><span>0</span></label>
+            <label><input type="checkbox" name="attr_stones_pip2" value="1"><span>-1</span></label>
+            <label><input type="checkbox" name="attr_stones_pip1" value="1"><span>-2</span></label>
+          </div>
+        </div>
+
+        <div class="sheet-stat">
+          <div class="sheet-stat-name">Scrolls</div>
+          <div class="sheet-stat-box"><input type="text" name="attr_scrolls" value="-3" readonly></div>
+          <div class="sheet-pips">
+            <label><input type="checkbox" name="attr_scrolls_pip6" value="1"><span>+3</span></label>
+            <label><input type="checkbox" name="attr_scrolls_pip5" value="1"><span>+2</span></label>
+            <label><input type="checkbox" name="attr_scrolls_pip4" value="1"><span>+1</span></label>
+            <label><input type="checkbox" name="attr_scrolls_pip3" value="1"><span>0</span></label>
+            <label><input type="checkbox" name="attr_scrolls_pip2" value="1"><span>-1</span></label>
+            <label><input type="checkbox" name="attr_scrolls_pip1" value="1"><span>-2</span></label>
+          </div>
+        </div>
+
+        <div class="sheet-stat">
+          <div class="sheet-stat-name">Swords</div>
+          <div class="sheet-stat-box"><input type="text" name="attr_swords" value="-3" readonly></div>
+          <div class="sheet-pips">
+            <label><input type="checkbox" name="attr_swords_pip6" value="1"><span>+3</span></label>
+            <label><input type="checkbox" name="attr_swords_pip5" value="1"><span>+2</span></label>
+            <label><input type="checkbox" name="attr_swords_pip4" value="1"><span>+1</span></label>
+            <label><input type="checkbox" name="attr_swords_pip3" value="1"><span>0</span></label>
+            <label><input type="checkbox" name="attr_swords_pip2" value="1"><span>-1</span></label>
+            <label><input type="checkbox" name="attr_swords_pip1" value="1"><span>-2</span></label>
+          </div>
+        </div>
+
+        <div class="sheet-stat">
+          <div class="sheet-stat-name">Sorcery</div>
+          <div class="sheet-stat-box"><input type="text" name="attr_sorcery" value="-3" readonly></div>
+          <div class="sheet-pips">
+            <label><input type="checkbox" name="attr_sorcery_pip6" value="1"><span>+3</span></label>
+            <label><input type="checkbox" name="attr_sorcery_pip5" value="1"><span>+2</span></label>
+            <label><input type="checkbox" name="attr_sorcery_pip4" value="1"><span>+1</span></label>
+            <label><input type="checkbox" name="attr_sorcery_pip3" value="1"><span>0</span></label>
+            <label><input type="checkbox" name="attr_sorcery_pip2" value="1"><span>-1</span></label>
+            <label><input type="checkbox" name="attr_sorcery_pip1" value="1"><span>-2</span></label>
+          </div>
+        </div>
+      </div>
+
+      <details class="sheet-settings">
+        <summary>Settings</summary>
+
+        <h3>Primary Stat Bonuses</h3>
+        <div class="sheet-stat-bonuses">
+          <label>Stones Bonus <input type="number" name="attr_stones_bonus" value="0"></label>
+          <label>Scrolls Bonus <input type="number" name="attr_scrolls_bonus" value="0"></label>
+          <label>Swords Bonus <input type="number" name="attr_swords_bonus" value="0"></label>
+          <label>Sorcery Bonus <input type="number" name="attr_sorcery_bonus" value="0"></label>
+        </div>
+
+        <h3>Load</h3>
+        <div class="sheet-load-settings">
+          <label>Max Load <input type="number" name="attr_max_load" value="10" min="1" max="50"></label>
+        </div>
+
+      <h3>Skill Attributes</h3>
+<div class="sheet-skill-routing">
+  <label>Athletics <select name="attr_athletics_attr"><option value="stones" selected>Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Connect <select name="attr_connect_attr"><option value="stones">Stones</option><option value="scrolls" selected>Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Instinct <select name="attr_instinct_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords" selected>Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Attune <select name="attr_attune_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery" selected>Sorcery</option></select></label>
+
+  <label>Grit <select name="attr_grit_attr"><option value="stones" selected>Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Inspire <select name="attr_inspire_attr"><option value="stones">Stones</option><option value="scrolls" selected>Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Reflex <select name="attr_reflex_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords" selected>Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Ritual <select name="attr_ritual_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery" selected>Sorcery</option></select></label>
+
+  <label>Might <select name="attr_might_attr"><option value="stones" selected>Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Know <select name="attr_know_attr"><option value="stones">Stones</option><option value="scrolls" selected>Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Sneak <select name="attr_sneak_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords" selected>Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Spellcraft <select name="attr_spellcraft_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery" selected>Sorcery</option></select></label>
+
+  <label>Survival <select name="attr_survival_attr"><option value="stones" selected>Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Mend <select name="attr_mend_attr"><option value="stones">Stones</option><option value="scrolls" selected>Scrolls</option><option value="swords">Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Sway <select name="attr_sway_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords" selected>Swords</option><option value="sorcery">Sorcery</option></select></label>
+  <label>Weird <select name="attr_weird_attr"><option value="stones">Stones</option><option value="scrolls">Scrolls</option><option value="swords">Swords</option><option value="sorcery" selected>Sorcery</option></select></label>
+</div>
+      </details>
+     <h2>Skills</h2>
+<div class="sheet-skills">
+
+  <!-- ROW 1 -->
+  <label><input type="checkbox" name="attr_athletics_trained"><button type="roll" name="roll_athletics" value="!ssss-start @{character_name} Athletics Stones @{stones} @{athletics_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Athletics</button></label>
+  <label><input type="checkbox" name="attr_connect_trained"><button type="roll" name="roll_connect" value="!ssss-start @{character_name} Connect Scrolls @{scrolls} @{connect_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Connect</button></label>
+  <label><input type="checkbox" name="attr_instinct_trained"><button type="roll" name="roll_instinct" value="!ssss-start @{character_name} Instinct Swords @{swords} @{instinct_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Instinct</button></label>
+  <label><input type="checkbox" name="attr_attune_trained"><button type="roll" name="roll_attune" value="!ssss-start @{character_name} Attune Sorcery @{sorcery} @{attune_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Attune</button></label>
+
+  <!-- ROW 2 -->
+  <label><input type="checkbox" name="attr_grit_trained"><button type="roll" name="roll_grit" value="!ssss-start @{character_name} Grit Stones @{stones} @{grit_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Grit</button></label>
+  <label><input type="checkbox" name="attr_inspire_trained"><button type="roll" name="roll_inspire" value="!ssss-start @{character_name} Inspire Scrolls @{scrolls} @{inspire_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Inspire</button></label>
+  <label><input type="checkbox" name="attr_reflex_trained"><button type="roll" name="roll_reflex" value="!ssss-start @{character_name} Reflex Swords @{swords} @{reflex_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Reflex</button></label>
+  <label><input type="checkbox" name="attr_ritual_trained"><button type="roll" name="roll_ritual" value="!ssss-start @{character_name} Ritual Sorcery @{sorcery} @{ritual_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Ritual</button></label>
+
+  <!-- ROW 3 -->
+  <label><input type="checkbox" name="attr_might_trained"><button type="roll" name="roll_might" value="!ssss-start @{character_name} Might Stones @{stones} @{might_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Might</button></label>
+  <label><input type="checkbox" name="attr_know_trained"><button type="roll" name="roll_know" value="!ssss-start @{character_name} Know Scrolls @{scrolls} @{know_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Know</button></label>
+  <label><input type="checkbox" name="attr_sneak_trained"><button type="roll" name="roll_sneak" value="!ssss-start @{character_name} Sneak Swords @{swords} @{sneak_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Sneak</button></label>
+  <label><input type="checkbox" name="attr_spellcraft_trained"><button type="roll" name="roll_spellcraft" value="!ssss-start @{character_name} Spellcraft Sorcery @{sorcery} @{spellcraft_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Spellcraft</button></label>
+
+  <!-- ROW 4 -->
+  <label><input type="checkbox" name="attr_survival_trained"><button type="roll" name="roll_survival" value="!ssss-start @{character_name} Survival Stones @{stones} @{survival_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Survival</button></label>
+  <label><input type="checkbox" name="attr_mend_trained"><button type="roll" name="roll_mend" value="!ssss-start @{character_name} Mend Scrolls @{scrolls} @{mend_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Mend</button></label>
+  <label><input type="checkbox" name="attr_sway_trained"><button type="roll" name="roll_sway" value="!ssss-start @{character_name} Sway Swords @{swords} @{sway_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Sway</button></label>
+  <label><input type="checkbox" name="attr_weird_trained"><button type="roll" name="roll_weird" value="!ssss-start @{character_name} Weird Sorcery @{sorcery} @{weird_trained} @{harm_outcome_penalty} @{harm_series_penalty}">Weird</button></label>
+
+</div>
+
+      <h2>Harm</h2>
+<div class="sheet-harm">
+
+  <!-- Left labels -->
+  <div class="sheet-harm-labels">
+    <span>3</span>
+    <span>2</span>
+    <span>1</span>
+  </div>
+
+  <!-- LEVEL 3 -->
+  <div class="sheet-harm-cell sheet-harm-cell-3">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm3_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm3"></textarea>
+  </div>
+
+  <!-- LEVEL 2 -->
+  <div class="sheet-harm-cell sheet-harm-cell-2a">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm2a_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm2a"></textarea>
+  </div>
+
+  <div class="sheet-harm-cell sheet-harm-cell-2b">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm2b_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm2b"></textarea>
+  </div>
+
+  <!-- LEVEL 1 -->
+  <div class="sheet-harm-cell sheet-harm-cell-1a">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm1a_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm1a"></textarea>
+  </div>
+
+  <div class="sheet-harm-cell sheet-harm-cell-1b">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm1b_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm1b"></textarea>
+  </div>
+
+  <div class="sheet-harm-cell sheet-harm-cell-1c">
+    <label class="sheet-harm-slot">
+      <input type="checkbox" name="attr_harm1c_injury" value="1">
+      <span></span>
+    </label>
+    <textarea name="attr_harm1c"></textarea>
+  </div>
+
+  <!-- RIGHT SIDE (UNCHANGED - your recovery track) -->
+  <div class="sheet-harm-checks">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm6" value="1"><span></span></label>
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm5" value="1"><span></span></label>
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm4" value="1"><span></span></label>
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm3tick" value="1"><span></span></label>
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm2tick" value="1"><span></span></label>
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_harm1tick" value="1"><span></span></label>
+  </div>
+
+</div>
+
+      <h2>Abilities</h2>
+      <div class="sheet-abilities sheet-panel">
+        <fieldset class="repeating_abilities">
+          <div class="sheet-ability-entry">
+            <div class="sheet-ability-header">
+  <input type="checkbox" name="attr_prepared" value="1">
+
+  <div class="sheet-ability-name-row">
+    <input type="text" name="attr_ability_name" placeholder="Ability name">
+    <input type="text" name="attr_ability_source" placeholder="Source">
+  </div>
+</div>
+<div class="sheet-ability-header">
+            </div>
+            <textarea name="attr_ability" rows="3" placeholder="Ability text"></textarea>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="sheet-right">
+      <h2>Experience Track</h2>
+      <div class="sheet-xp-track">
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp1" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp2" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp3" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp4" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp5" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp6" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp7" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp8" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp9" value="1"><span></span></label>
+        <label class="sheet-trackbox"><input type="checkbox" name="attr_xp10" value="1"><span></span></label>
+      </div>
+            <h2>Load</h2>
+<div class="sheet-xp-track sheet-load-track">
+  <input type="hidden" name="attr_load1_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load1" value="1"><input type="hidden" name="attr_load1_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load2_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load2" value="1"><input type="hidden" name="attr_load2_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load3_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load3" value="1"><input type="hidden" name="attr_load3_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load4_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load4" value="1"><input type="hidden" name="attr_load4_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load5_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load5" value="1"><input type="hidden" name="attr_load5_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load6_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load6" value="1"><input type="hidden" name="attr_load6_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load7_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load7" value="1"><input type="hidden" name="attr_load7_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load8_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load8" value="1"><input type="hidden" name="attr_load8_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load9_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load9" value="1"><input type="hidden" name="attr_load9_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load10_visible" class="sheet-load-visible" value="1"><label class="sheet-trackbox"><input type="checkbox" name="attr_load10" value="1"><input type="hidden" name="attr_load10_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load11_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load11" value="1"><input type="hidden" name="attr_load11_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load12_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load12" value="1"><input type="hidden" name="attr_load12_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load13_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load13" value="1"><input type="hidden" name="attr_load13_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load14_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load14" value="1"><input type="hidden" name="attr_load14_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load15_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load15" value="1"><input type="hidden" name="attr_load15_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load16_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load16" value="1"><input type="hidden" name="attr_load16_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load17_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load17" value="1"><input type="hidden" name="attr_load17_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load18_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load18" value="1"><input type="hidden" name="attr_load18_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load19_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load19" value="1"><input type="hidden" name="attr_load19_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load20_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load20" value="1"><input type="hidden" name="attr_load20_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load21_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load21" value="1"><input type="hidden" name="attr_load21_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load22_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load22" value="1"><input type="hidden" name="attr_load22_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load23_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load23" value="1"><input type="hidden" name="attr_load23_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load24_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load24" value="1"><input type="hidden" name="attr_load24_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load25_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load25" value="1"><input type="hidden" name="attr_load25_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load26_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load26" value="1"><input type="hidden" name="attr_load26_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load27_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load27" value="1"><input type="hidden" name="attr_load27_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load28_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load28" value="1"><input type="hidden" name="attr_load28_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load29_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load29" value="1"><input type="hidden" name="attr_load29_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load30_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load30" value="1"><input type="hidden" name="attr_load30_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load31_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load31" value="1"><input type="hidden" name="attr_load31_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load32_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load32" value="1"><input type="hidden" name="attr_load32_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load33_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load33" value="1"><input type="hidden" name="attr_load33_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load34_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load34" value="1"><input type="hidden" name="attr_load34_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load35_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load35" value="1"><input type="hidden" name="attr_load35_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load36_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load36" value="1"><input type="hidden" name="attr_load36_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load37_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load37" value="1"><input type="hidden" name="attr_load37_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load38_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load38" value="1"><input type="hidden" name="attr_load38_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load39_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load39" value="1"><input type="hidden" name="attr_load39_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load40_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load40" value="1"><input type="hidden" name="attr_load40_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load41_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load41" value="1"><input type="hidden" name="attr_load41_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load42_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load42" value="1"><input type="hidden" name="attr_load42_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load43_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load43" value="1"><input type="hidden" name="attr_load43_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load44_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load44" value="1"><input type="hidden" name="attr_load44_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load45_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load45" value="1"><input type="hidden" name="attr_load45_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load46_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load46" value="1"><input type="hidden" name="attr_load46_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load47_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load47" value="1"><input type="hidden" name="attr_load47_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load48_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load48" value="1"><input type="hidden" name="attr_load48_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load49_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load49" value="1"><input type="hidden" name="attr_load49_over" class="sheet-load-over" value="0"><span></span></label>
+  <input type="hidden" name="attr_load50_visible" class="sheet-load-visible" value="0"><label class="sheet-trackbox"><input type="checkbox" name="attr_load50" value="1"><input type="hidden" name="attr_load50_over" class="sheet-load-over" value="0"><span></span></label>
+</div>
+
+      <h2>Inventory</h2>
+<div class="sheet-inventory sheet-panel">
+  <fieldset class="repeating_inventory">
+    <div class="sheet-inventory-row">
+      <input type="checkbox" name="attr_equipped" value="1">
+      <input type="text" name="attr_item" placeholder="Item">
+      <input type="number" name="attr_item_load" placeholder="Load">
+    </div>
+  </fieldset>
+</div>
+
+      <h2>Words of Power</h2>
+<div class="sheet-sorceries sheet-panel">
+  <fieldset class="repeating_sorceries">
+    <div class="sheet-sorcery-row">
+  <input type="hidden" name="attr_sorcery_exhausted" class="sheet-sorcery-exhausted" value="0">
+
+  <input type="text" name="attr_sorcery_word" placeholder="Word of Power">
+
+  <input type="number" name="attr_sorcery_uses" value="1" min="1" max="5" class="sheet-sorcery-uses">
+
+  <div class="sheet-sorcery-track">
+    <input type="hidden" name="attr_use1_visible" value="1" class="sheet-use-visible">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_use1" value="1"><span></span></label>
+
+    <input type="hidden" name="attr_use2_visible" value="0" class="sheet-use-visible">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_use2" value="1"><span></span></label>
+
+    <input type="hidden" name="attr_use3_visible" value="0" class="sheet-use-visible">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_use3" value="1"><span></span></label>
+
+    <input type="hidden" name="attr_use4_visible" value="0" class="sheet-use-visible">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_use4" value="1"><span></span></label>
+
+    <input type="hidden" name="attr_use5_visible" value="0" class="sheet-use-visible">
+    <label class="sheet-trackbox"><input type="checkbox" name="attr_use5" value="1"><span></span></label>
+  </div>
+</div>
+</div>
+  </fieldset>
+</div>
+    </div>
+  </div>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-ssss-round">
+  <div class="sheet-ssss-card">
+    <div class="sheet-ssss-title">{{character}}</div>
+    <div class="sheet-ssss-skill">{{skill}}</div>
+
+    <div class="sheet-ssss-pips">
+      {{#pip1_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip1_player}}
+      {{#pip1_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip1_gm}}
+      {{#pip1_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip1_empty}}
+
+      {{#pip2_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip2_player}}
+      {{#pip2_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip2_gm}}
+      {{#pip2_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip2_empty}}
+
+      {{#pip3_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip3_player}}
+      {{#pip3_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip3_gm}}
+      {{#pip3_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip3_empty}}
+
+      {{#pip4_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip4_player}}
+      {{#pip4_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip4_gm}}
+      {{#pip4_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip4_empty}}
+
+      {{#pip5_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip5_player}}
+      {{#pip5_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip5_gm}}
+      {{#pip5_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip5_empty}}
+    </div>
+
+    <div class="sheet-ssss-winner">{{winner}}</div>
+
+    <div class="sheet-ssss-throws">
+      <div class="sheet-ssss-player-throw">
+        <div class="sheet-ssss-throw-name">{{playerthrow}}</div>
+        <div class="sheet-ssss-throw-side">Player</div>
+      </div>
+      <div class="sheet-ssss-gm-throw">
+  <div class="sheet-ssss-throw-side">{{opponent}}</div>
+  <div class="sheet-ssss-throw-name">{{opponentthrow}}</div>
+</div>
+    </div>
+  </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-ssss-final">
+  <div class="sheet-ssss-card">
+    <div class="sheet-ssss-title">{{character}}</div>
+    <div class="sheet-ssss-skill">{{skill}}</div>
+
+    <div class="sheet-ssss-pips">
+      {{#pip1_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip1_player}}
+      {{#pip1_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip1_gm}}
+      {{#pip1_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip1_empty}}
+
+      {{#pip2_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip2_player}}
+      {{#pip2_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip2_gm}}
+      {{#pip2_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip2_empty}}
+
+      {{#pip3_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip3_player}}
+      {{#pip3_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip3_gm}}
+      {{#pip3_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip3_empty}}
+
+      {{#pip4_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip4_player}}
+      {{#pip4_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip4_gm}}
+      {{#pip4_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip4_empty}}
+
+      {{#pip5_player}}<span class="sheet-ssss-pip sheet-pip-player"></span>{{/pip5_player}}
+      {{#pip5_gm}}<span class="sheet-ssss-pip sheet-pip-gm"></span>{{/pip5_gm}}
+      {{#pip5_empty}}<span class="sheet-ssss-pip sheet-pip-empty"></span>{{/pip5_empty}}
+    </div>
+
+    <div class="sheet-ssss-winner">{{winner}}</div>
+
+    <div class="sheet-ssss-outcome">
+      <div class="sheet-ssss-outcome-label">Outcome</div>
+      <div class="sheet-ssss-outcome-number">{{outcome}}</div>
+      <div class="sheet-ssss-formula">{{formula}}</div>
+    </div>
+  </div>
+</rolltemplate>
+
+<script type="text/worker">
+const statMap = ["stones", "scrolls", "swords", "sorcery"];
+
+const skillMap = [
+  "athletics", "connect", "instinct", "attune",
+  "grit", "inspire", "reflex", "ritual",
+  "might", "know", "sneak", "spellcraft",
+  "survival", "mend", "sway", "weird"
+];
+
+const prettyStats = {
+  stones: "Stones",
+  scrolls: "Scrolls",
+  swords: "Swords",
+  sorcery: "Sorcery"
+};
+
+const statAttrs = statMap.flatMap(s => [
+  ...[1,2,3,4,5,6].map(i => `${s}_pip${i}`),
+  `${s}_bonus`
+]);
+
+const updateStats = () => {
+  getAttrs(statAttrs, v => {
+    const out = {};
+
+    statMap.forEach(s => {
+      const total = [1,2,3,4,5,6].reduce((sum, i) => {
+        return sum + (v[`${s}_pip${i}`] === "1" ? 1 : 0);
+      }, 0);
+
+      const bonus = parseInt(v[`${s}_bonus`] || "0", 10) || 0;
+      out[s] = String((total - 3) + bonus);
+    });
+
+    setAttrs(out, {silent: true}, updateSkillRoutes);
+  });
+};
+
+on("sheet:opened " + statAttrs.map(a => `change:${a}`).join(" "), event => {
+  if (!event.sourceAttribute || event.sourceAttribute.endsWith("_bonus")) {
+    updateStats();
+    return;
+  }
+
+  const changed = event.sourceAttribute;
+  const match = changed.match(/^(stones|scrolls|swords|sorcery)_pip([1-6])$/);
+
+  if (!match) {
+    updateStats();
+    return;
+  }
+
+  const stat = match[1];
+  const clicked = parseInt(match[2], 10);
+  const order = [1,2,3,4,5,6].map(i => `${stat}_pip${i}`);
+
+  getAttrs(order, v => {
+    const checked = v[changed] === "1";
+    const out = {};
+
+    if (checked) {
+      for (let i = 1; i <= clicked; i++) out[`${stat}_pip${i}`] = "1";
+    } else {
+      for (let i = clicked; i <= 6; i++) out[`${stat}_pip${i}`] = "0";
+    }
+
+    setAttrs(out, {silent: true}, updateStats);
+  });
+});
+
+const updateSkillRoutes = () => {
+  const fields = [
+    "stones", "scrolls", "swords", "sorcery",
+    ...skillMap.map(s => `${s}_attr`)
+  ];
+
+  getAttrs(fields, v => {
+    const out = {};
+
+    skillMap.forEach(skill => {
+      const stat = v[`${skill}_attr`] || "stones";
+      out[`${skill}_stat_name`] = prettyStats[stat] || "Stones";
+      out[`${skill}_mod`] = v[stat] || "0";
+    });
+
+    setAttrs(out, { silent: true });
+  });
+};
+
+on(
+  "sheet:opened change:stones change:scrolls change:swords change:sorcery " +
+  skillMap.map(s => `change:${s}_attr`).join(" "),
+  updateSkillRoutes
+);
+
+/* Harm fills bottom to top */
+on("change:harm1tick change:harm2tick change:harm3tick change:harm4 change:harm5 change:harm6", event => {
+  const order = ["harm1tick", "harm2tick", "harm3tick", "harm4", "harm5", "harm6"];
+
+  getAttrs(order, v => {
+    const changed = event.sourceAttribute;
+    const idx = order.indexOf(changed);
+    const checked = v[changed] === "1";
+    const out = {};
+
+    if (checked) {
+      for (let i = 0; i <= idx; i++) out[order[i]] = "1";
+    } else {
+      for (let i = idx; i < order.length; i++) out[order[i]] = "0";
+    }
+
+    setAttrs(out, {silent: true});
+  });
+});
+
+/* Experience fills left to right */
+on("change:xp1 change:xp2 change:xp3 change:xp4 change:xp5 change:xp6 change:xp7 change:xp8 change:xp9 change:xp10", event => {
+  const order = ["xp1", "xp2", "xp3", "xp4", "xp5", "xp6", "xp7", "xp8", "xp9", "xp10"];
+
+  getAttrs(order, v => {
+    const changed = event.sourceAttribute;
+    const idx = order.indexOf(changed);
+    const checked = v[changed] === "1";
+    const out = {};
+
+    if (checked) {
+      for (let i = 0; i <= idx; i++) out[order[i]] = "1";
+    } else {
+      for (let i = idx; i < order.length; i++) out[order[i]] = "0";
+    }
+
+    setAttrs(out, {silent: true});
+  });
+});
+/* =========================
+   SORCERY USE TRACK
+========================= */
+const updateSorceryUses = (row, changedAttr = null) => {
+  const prefix = `repeating_sorceries_${row}_`;
+
+  const fields = [
+    `${prefix}sorcery_uses`,
+    `${prefix}use1`,
+    `${prefix}use2`,
+    `${prefix}use3`,
+    `${prefix}use4`,
+    `${prefix}use5`
+  ];
+
+  getAttrs(fields, v => {
+    const uses = Math.max(1, Math.min(parseInt(v[`${prefix}sorcery_uses`] || "1", 10) || 1, 5));
+    const out = {};
+
+    for (let i = 1; i <= 5; i++) {
+      out[`${prefix}use${i}_visible`] = i <= uses ? "1" : "0";
+      if (i > uses) out[`${prefix}use${i}`] = "0";
+    }
+
+    const changedMatch = changedAttr ? changedAttr.match(/use([1-5])$/) : null;
+
+    if (changedMatch) {
+      const clicked = parseInt(changedMatch[1], 10);
+      const checked = v[`${prefix}use${clicked}`] === "1";
+
+      if (checked) {
+        for (let i = 1; i <= uses; i++) {
+          out[`${prefix}use${i}`] = i <= clicked ? "1" : "0";
+        }
+      } else {
+        for (let i = 1; i <= uses; i++) {
+          out[`${prefix}use${i}`] = i < clicked ? "1" : "0";
+        }
+      }
+    }
+
+    const finalBox = changedMatch
+      ? (v[`${prefix}use${uses}`] === "1" && parseInt(changedMatch[1], 10) >= uses)
+      : v[`${prefix}use${uses}`] === "1";
+
+    out[`${prefix}sorcery_exhausted`] = out[`${prefix}use${uses}`] === "1" || finalBox ? "1" : "0";
+
+    setAttrs(out, { silent: true });
+  });
+};
+
+on(
+  "change:repeating_sorceries:sorcery_uses change:repeating_sorceries:use1 change:repeating_sorceries:use2 change:repeating_sorceries:use3 change:repeating_sorceries:use4 change:repeating_sorceries:use5",
+  event => {
+    const match = event.sourceAttribute.match(/repeating_sorceries_([^_]+)_/);
+    if (match) updateSorceryUses(match[1], event.sourceAttribute);
+  }
+);
+
+on("sheet:opened", () => {
+  getSectionIDs("sorceries", ids => {
+    ids.forEach(id => updateSorceryUses(id));
+  });
+});
+/* Auto-fill Load track from checked inventory items */
+const updateLoadFromInventory = () => {
+  getSectionIDs("inventory", ids => {
+    const fields = ["max_load", "harm_load_penalty"];
+
+    ids.forEach(id => {
+      fields.push(`repeating_inventory_${id}_equipped`);
+      fields.push(`repeating_inventory_${id}_item_load`);
+    });
+
+    getAttrs(fields, v => {
+      let totalLoad = 0;
+      const baseMaxLoad = Math.max(1, Math.min(parseInt(v.max_load || "10", 10) || 10, 50));
+      const harmLoadPenalty = parseInt(v.harm_load_penalty || "0", 10) || 0;
+      const maxLoad = Math.max(1, baseMaxLoad - harmLoadPenalty);
+
+      ids.forEach(id => {
+        const equipped = v[`repeating_inventory_${id}_equipped`] === "1";
+        const load = parseInt(v[`repeating_inventory_${id}_item_load`] || "0", 10);
+
+        if (equipped && !isNaN(load)) totalLoad += load;
+      });
+
+      const cappedLoad = Math.min(totalLoad, maxLoad);
+      const overloaded = totalLoad > maxLoad;
+      const out = {};
+
+      for (let i = 1; i <= 50; i++) {
+        out[`load${i}_visible`] = i <= maxLoad ? "1" : "0";
+        out[`load${i}`] = i <= cappedLoad ? "1" : "0";
+        out[`load${i}_over`] = overloaded && i === maxLoad ? "1" : "0";
+      }
+
+      setAttrs(out, { silent: true });
+    });
+  });
+};
+
+const updateHarmPenalties = () => {
+  const fields = [
+    "harm1a_injury", "harm1b_injury", "harm1c_injury",
+    "harm2a_injury", "harm2b_injury",
+    "harm3_injury"
+  ];
+
+  getAttrs(fields, v => {
+    const minor =
+      (v.harm1a_injury === "1" ? 1 : 0) +
+      (v.harm1b_injury === "1" ? 1 : 0) +
+      (v.harm1c_injury === "1" ? 1 : 0);
+
+    const moderate =
+      (v.harm2a_injury === "1" ? 1 : 0) +
+      (v.harm2b_injury === "1" ? 1 : 0);
+
+    const severe = v.harm3_injury === "1" ? 1 : 0;
+
+    setAttrs({
+      harm_load_penalty: String(minor),
+      harm_outcome_penalty: String(moderate),
+      harm_series_penalty: String(severe)
+    }, { silent: true }, updateLoadFromInventory);
+  });
+};
+
+on(
+  "change:max_load change:harm_load_penalty change:repeating_inventory:equipped change:repeating_inventory:item_load remove:repeating_inventory sheet:opened",
+  updateLoadFromInventory
+);
+
+on(
+  "sheet:opened change:harm1a_injury change:harm1b_injury change:harm1c_injury change:harm2a_injury change:harm2b_injury change:harm3_injury",
+  updateHarmPenalties
+);
+</script>

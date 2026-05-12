@@ -1,0 +1,984 @@
+/* =========================
+   BASE SHEET
+========================= */
+
+.sheet-ssss {
+  width: 850px;
+  box-sizing: border-box;
+  padding: 20px 26px;
+  color: #111;
+  background: #fff;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+}
+
+.sheet-ssss * {
+  box-sizing: border-box;
+}
+
+.sheet-ssss input,
+.sheet-ssss textarea,
+.sheet-ssss button {
+  font-family: inherit;
+}
+
+.sheet-ssss input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+  padding-right: 2px;
+}
+
+.sheet-ssss input[type=number]::-webkit-outer-spin-button,
+.sheet-ssss input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.sheet-ssss h2 {
+  margin: 12px 0 6px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: normal;
+}
+
+
+/* =========================
+   TITLE
+========================= */
+
+.sheet-titlebar {
+  height: 88px;
+  border: 3px solid #111;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  padding: 8px 18px;
+  margin: 0 0 18px;
+  box-shadow: inset 0 0 0 2px #fff, inset 0 0 0 4px #111;
+}
+
+.sheet-sigil {
+  width: 52px;
+  height: 52px;
+  border: 2px solid #111;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+  margin-right: 16px;
+}
+
+.sheet-titletext {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+
+/* =========================
+   TOP FIELDS
+========================= */
+
+.sheet-top-fields {
+  display: grid;
+  grid-template-columns: 1.1fr 1.1fr 120px;
+  gap: 18px 24px;
+  margin-bottom: 16px;
+}
+
+.sheet-top-fields label {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  text-transform: uppercase;
+  font-size: 22px;
+  min-width: 0;
+}
+
+.sheet-top-fields input {
+  min-width: 0;
+  flex: 1;
+  height: 24px;
+  border: 0;
+  border-bottom: 2px solid #111;
+  background: transparent;
+  box-shadow: none;
+  font-size: 16px;
+}
+
+.sheet-level,
+.sheet-points {
+  justify-self: end;
+}
+
+.sheet-level input[type=number],
+.sheet-points input[type=number] {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  text-align: center;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.sheet-main-grid {
+  display: grid;
+  grid-template-columns: 560px 280px;
+  gap: 26px;
+}
+
+.sheet-right h2:first-child {
+  margin-top: 10px;
+}
+
+.sheet-panel {
+  border: 2px solid #111;
+  border-radius: 12px;
+  padding: 8px;
+  background: #fff;
+}
+
+
+/* =========================
+   ATTRIBUTES / STATS
+========================= */
+
+.sheet-stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  margin-bottom: 18px;
+}
+
+.sheet-stat {
+  position: relative;
+  width: 112px;
+  height: 112px;
+  justify-self: center;
+}
+
+.sheet-stat-name {
+  text-transform: uppercase;
+  font-size: 21px;
+  line-height: 26px;
+  text-align: center;
+}
+
+.sheet-stat-box {
+  width: 88px;
+  height: 78px;
+  border: 2px solid #111;
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-stat-box input {
+  width: 76px;
+  height: 68px;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+  font-size: 38px;
+  font-weight: bold;
+  line-height: 68px;
+  transform: translateY(-3px);
+}
+
+
+/* Attribute pips */
+
+.sheet-pips {
+  position: absolute;
+  left: 92px;
+  top: 25px;
+  height: 78px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sheet-pips label {
+  position: relative;
+  width: 20px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+}
+
+.sheet-pips input[type=checkbox] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 12px;
+  margin: 0;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.sheet-pips span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 12px;
+  display: block;
+  border: 1px solid #111;
+  border-radius: 2px;
+  background: #fff;
+  color: #111;
+  font-size: 10px;
+  line-height: 11px;
+  text-align: center;
+  z-index: 1;
+}
+
+.sheet-pips input[type=checkbox]:checked + span {
+  background: #777;
+  color: #fff;
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.sheet-settings {
+  margin: 2px 0 14px;
+  border: 2px solid #111;
+  border-radius: 12px;
+  padding: 6px 8px;
+  background: #fff;
+}
+
+.sheet-settings summary {
+  cursor: pointer;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-style: italic;
+  list-style-position: inside;
+}
+
+.sheet-settings h3 {
+  margin: 10px 0 4px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: normal;
+}
+
+.sheet-stat-bonuses,
+.sheet-skill-routing {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px 8px;
+}
+
+.sheet-load-settings {
+  display: flex;
+  justify-content: center;
+}
+
+.sheet-stat-bonuses label,
+.sheet-skill-routing label,
+.sheet-load-settings label {
+  display: block;
+  min-width: 0;
+  text-transform: uppercase;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.sheet-stat-bonuses input,
+.sheet-load-settings input {
+  width: 48px;
+  height: 22px;
+  margin-left: 4px;
+  border: 0;
+  border-bottom: 1px solid #111;
+  background: transparent;
+  box-shadow: none;
+  text-align: center;
+}
+
+.sheet-skill-routing select {
+  width: 100%;
+  height: 24px;
+  border: 1px solid #111;
+  border-radius: 4px;
+  background: #fff;
+  font-family: inherit;
+  font-size: 12px;
+}
+
+/* =========================
+   SKILLS
+========================= */
+
+.sheet-skills {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  column-gap: 8px;
+  row-gap: 3px;
+  margin: 0 0 18px 0;
+  width: 100%;
+}
+
+.sheet-skills label {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 32px;
+  min-width: 0;
+}
+
+.sheet-skills label > input {
+  position: absolute;
+  left: -9px;
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  opacity: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.sheet-skills label::before {
+  content: "";
+  position: absolute;
+  left: -9px;
+  top: -7px;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #111;
+  border-radius: 3px;
+  background: #fff;
+  z-index: 2;
+}
+
+.sheet-skills label:has(> input:checked)::before {
+  background: #777;
+}
+
+.sheet-skills button[type=roll] {
+  display: block !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+  height: 28px !important;
+  margin: 0 !important;
+  padding: 0 4px 0 18px !important;
+
+  border: 2px solid #111;
+  border-radius: 8px;
+  background: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+
+  font-size: 15px !important;
+  line-height: 24px !important;
+  font-style: italic;
+  color: #111;
+  text-shadow: none !important;
+
+  overflow: hidden;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.sheet-skills button[type=roll]::before {
+  content: "" !important;
+  display: none !important;
+}
+
+/* =========================
+   SHARED TRACKBOX STYLE
+========================= */
+
+.sheet-trackbox {
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  margin: 0 2px 2px 0;
+  padding: 0;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+
+.sheet-trackbox input[type=checkbox] {
+  position: absolute;
+  opacity: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sheet-trackbox span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #111;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sheet-trackbox input[type=checkbox]:checked + span {
+  background: #777;
+}
+
+
+/* =========================
+   HARM
+========================= */
+
+.sheet-harm {
+  display: grid;
+  grid-template-columns: 50px repeat(6, 1fr) 30px;
+  grid-template-rows: repeat(3, 39px);
+  border: 2px solid #111;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.sheet-harm-labels {
+  grid-column: 1;
+  grid-row: 1 / 4;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+  align-items: center;
+  text-align: center;
+  font-size: 20px;
+  border-right: 1px solid #111;
+}
+
+.sheet-harm-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 3px 3px 6px;
+  min-width: 0;
+  border-bottom: 1px solid #111;
+}
+
+.sheet-harm-cell textarea {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  resize: none;
+  padding: 0 6px;
+  text-align: left;
+}
+
+.sheet-harm-slot {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
+.sheet-harm-slot input {
+  position: absolute;
+  inset: 0;
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.sheet-harm-slot span {
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #111;
+  border-radius: 4px;
+  background: #fff;
+}
+
+.sheet-harm-slot input:checked + span {
+  background: #777;
+}
+
+/* Level 3 */
+.sheet-harm-cell-3 {
+  grid-column: 2 / 8;
+  grid-row: 1;
+}
+
+/* Level 2 */
+.sheet-harm-cell-2a {
+  grid-column: 2 / 5;
+  grid-row: 2;
+  border-right: 1px solid #111;
+}
+
+.sheet-harm-cell-2b {
+  grid-column: 5 / 8;
+  grid-row: 2;
+}
+
+/* Level 1 */
+.sheet-harm-cell-1a {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  border-right: 1px solid #111;
+  border-bottom: 0;
+}
+
+.sheet-harm-cell-1b {
+  grid-column: 4 / 6;
+  grid-row: 3;
+  border-right: 1px solid #111;
+  border-bottom: 0;
+}
+
+.sheet-harm-cell-1c {
+  grid-column: 6 / 8;
+  grid-row: 3;
+  border-bottom: 0;
+}
+
+/* Recovery track */
+.sheet-harm-checks {
+  grid-column: 8;
+  grid-row: 1 / 4;
+  display: grid;
+  grid-template-rows: repeat(6, 1fr);
+  height: 100%;
+  align-items: stretch;
+  justify-items: center;
+  padding: 0;
+  border-left: 1px solid #111;
+}
+
+.sheet-harm-checks .sheet-trackbox {
+  width: 18px;
+  height: 100%;
+  margin: 0;
+}
+
+.sheet-harm-checks .sheet-trackbox span,
+.sheet-harm-checks .sheet-trackbox input[type=checkbox] {
+  width: 18px;
+  height: 100%;
+}
+/* =========================
+   ABILITIES
+========================= */
+
+.sheet-abilities {
+  min-height: 205px;
+}
+
+.sheet-abilities .repcontainer {
+  width: 100%;
+}
+
+.sheet-ability-entry {
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.sheet-ability-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 2px;
+}
+
+.sheet-ability-header input[type=checkbox] {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.sheet-ability-header input[type=text] {
+  flex: 1;
+  height: 24px;
+  border: 0;
+  border-bottom: 1px solid #111;
+  box-shadow: none;
+  background: transparent;
+  font-weight: bold;
+}
+
+.sheet-ability-entry textarea {
+  width: 100%;
+  min-height: 54px;
+  height: 54px;
+  resize: vertical;
+  border: 0;
+  border-bottom: 1px solid #111;
+  box-shadow: none;
+  background: transparent;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.sheet-ability-name-row {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 8px;
+  width: 100%;
+  padding-right: 30px; /* stops Source from colliding */
+}
+
+.sheet-ability-name-row input {
+  height: 24px;
+  border: 0;
+  border-bottom: 1px solid #111;
+  box-shadow: none;
+  background: transparent;
+}
+
+.sheet-ability-name-row input:last-child {
+  text-align: right;
+  font-style: italic;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* =========================
+   XP AND LOAD TRACKS
+========================= */
+
+.sheet-xp-track,
+.sheet-load-track {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 280px;
+  margin: 3px auto 22px;
+}
+
+.sheet-xp-track .sheet-trackbox,
+.sheet-load-track .sheet-trackbox {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+}
+
+.sheet-xp-track .sheet-trackbox span,
+.sheet-xp-track .sheet-trackbox input[type=checkbox],
+.sheet-load-track .sheet-trackbox span,
+.sheet-load-track .sheet-trackbox input[type=checkbox] {
+  width: 24px;
+  height: 24px;
+}
+
+.sheet-load-visible[value="0"] + .sheet-trackbox {
+  display: none;
+}
+
+.sheet-load-track .sheet-trackbox input[type=checkbox] {
+  pointer-events: none;
+  cursor: default;
+}
+
+.sheet-load-track .sheet-trackbox span {
+  cursor: default;
+}
+
+/* Colour-coded Load zones */
+.sheet-load-track .sheet-trackbox:nth-of-type(-n+5) input[type=checkbox]:checked ~ span {
+  background: #7fbf7f;
+}
+
+.sheet-load-track .sheet-trackbox:nth-of-type(n+6):nth-of-type(-n+8) input[type=checkbox]:checked ~ span {
+  background: #d6c75a;
+}
+
+.sheet-load-track .sheet-trackbox:nth-of-type(n+9) input[type=checkbox]:checked ~ span {
+  background: #c96b6b;
+}
+
+/* Overload marker */
+.sheet-load-over[value="1"] + span::after {
+  content: "+";
+  display: block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  line-height: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #111;
+}
+
+/* =========================
+   INVENTORY
+========================= */
+
+.sheet-inventory {
+  min-height: 275px;
+}
+
+.sheet-inventory-row {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr) 48px;
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 6px;
+  align-items: center;
+}
+
+.sheet-inventory-row input[type=checkbox] {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+}
+
+.sheet-inventory-row input[type=text],
+.sheet-inventory-row input[type=number] {
+  display: block;
+  box-sizing: border-box;
+  height: 28px;
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px solid #111;
+  box-shadow: none;
+  background: transparent;
+}
+
+.sheet-inventory-row input[type=text] {
+  width: 100%;
+}
+
+.sheet-inventory-row input[type=number] {
+  width: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  text-align: center;
+  padding: 0;
+}
+
+/* =========================
+   SORCERIES
+========================= */
+
+.sheet-sorcery-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 34px auto;
+  gap: 6px;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.sheet-sorcery-row input[type=text],
+.sheet-sorcery-uses {
+  height: 28px;
+  min-width: 0;
+  border: 0;
+  border-bottom: 1px solid #111;
+  box-shadow: none;
+  background: transparent;
+}
+
+.sheet-sorcery-row input[type=text] {
+  width: 100%;
+}
+
+.sheet-sorcery-uses {
+  width: 34px;
+  text-align: center;
+  padding: 0;
+}
+
+.sheet-sorcery-exhausted[value="1"] + input[type=text] {
+  text-decoration: line-through;
+}
+
+.sheet-sorcery-track {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+}
+
+.sheet-sorcery-track .sheet-trackbox {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+}
+
+.sheet-sorcery-track .sheet-trackbox span,
+.sheet-sorcery-track .sheet-trackbox input[type=checkbox] {
+  width: 16px;
+  height: 16px;
+}
+
+.sheet-use-visible[value="0"] + .sheet-trackbox {
+  display: none;
+}
+
+/* =========================
+   CUSTOM ROLL TEMPLATES
+========================= */
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-card,
+.sheet-rolltemplate-ssss-final .sheet-ssss-card {
+  width: 190px;
+  background: #000;
+  border: 2px solid #111;
+  padding: 6px;
+  font-family: Georgia, "Times New Roman", serif;
+  color: #000;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-title,
+.sheet-rolltemplate-ssss-final .sheet-ssss-title,
+.sheet-rolltemplate-ssss-round .sheet-ssss-skill,
+.sheet-rolltemplate-ssss-final .sheet-ssss-skill,
+.sheet-rolltemplate-ssss-round .sheet-ssss-winner,
+.sheet-rolltemplate-ssss-final .sheet-ssss-winner {
+  background: #fff;
+  text-align: center;
+  font-weight: bold;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-title,
+.sheet-rolltemplate-ssss-final .sheet-ssss-title {
+  font-size: 22px;
+  text-transform: uppercase;
+  padding: 3px;
+  margin-bottom: 6px;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-skill,
+.sheet-rolltemplate-ssss-final .sheet-ssss-skill {
+  font-size: 21px;
+  text-transform: uppercase;
+  padding: 3px 3px 0;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-pips,
+.sheet-rolltemplate-ssss-final .sheet-ssss-pips {
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  padding: 5px 0;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-pip,
+.sheet-rolltemplate-ssss-final .sheet-ssss-pip {
+  width: 20px;
+  height: 20px;
+  border: 4px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-pip-player,
+.sheet-rolltemplate-ssss-final .sheet-pip-player {
+  background: #00e000;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-pip-gm,
+.sheet-rolltemplate-ssss-final .sheet-pip-gm {
+  background: #e00000;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-pip-empty,
+.sheet-rolltemplate-ssss-final .sheet-pip-empty {
+  background: #fff;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-winner,
+.sheet-rolltemplate-ssss-final .sheet-ssss-winner {
+  font-size: 22px;
+  padding: 3px 3px 5px;
+  margin-bottom: 6px;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-throws {
+  position: relative;
+  height: 120px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-throws::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 60px;
+  width: 250px;
+  height: 7px;
+  background: #000;
+  transform: rotate(-34deg);
+  transform-origin: center;
+  z-index: 2;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-player-throw {
+  position: absolute;
+  left: 8px;
+  top: 10px;
+  z-index: 3;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-gm-throw {
+  position: absolute;
+  right: 8px;
+  bottom: 10px;
+  text-align: right;
+  z-index: 3;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-throw-name {
+  font-size: 23px;
+  text-transform: uppercase;
+  line-height: 23px;
+}
+
+.sheet-rolltemplate-ssss-round .sheet-ssss-throw-side {
+  font-size: 16px;
+  font-style: italic;
+}
+
+.sheet-rolltemplate-ssss-final .sheet-ssss-outcome {
+  background: #fff;
+  text-align: center;
+  padding: 8px 4px;
+}
+
+.sheet-rolltemplate-ssss-final .sheet-ssss-outcome-label {
+  font-size: 15px;
+  text-transform: uppercase;
+}
+
+.sheet-rolltemplate-ssss-final .sheet-ssss-outcome-number {
+  font-size: 34px;
+  font-weight: bold;
+  line-height: 36px;
+}
+
+.sheet-rolltemplate-ssss-final .sheet-ssss-formula {
+  font-size: 10px;
+  font-style: italic;
+}

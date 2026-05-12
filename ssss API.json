@@ -1,0 +1,298 @@
+on("ready", () => {
+  state.SSSS_RPS = state.SSSS_RPS || {};
+});
+
+const choices = ["stones", "scrolls", "swords"];
+
+const beats = {
+  stones: "swords",
+  swords: "scrolls",
+  scrolls: "stones"
+};
+
+const pretty = {
+  stones: "Stones",
+  scrolls: "Scrolls",
+  swords: "Swords"
+};
+
+function signed(n) {
+  n = parseInt(n || 0, 10);
+  return n >= 0 ? `+${n}` : `${n}`;
+}
+
+function makeButtons(contestId, side) {
+  return choices.map(choice =>
+    `[${pretty[choice]}](!ssss-pick ${contestId} ${side} ${choice})`
+  ).join(" ");
+}
+
+function getPlayerName(playerId) {
+  const player = getObj("player", playerId);
+  if (!player) return "Unknown";
+  return player.get("_displayname") || "Unknown";
+}
+
+function getOpponentButtons(contestId, challengerId) {
+  const players = findObjs({ _type: "player" })
+    .filter(p => p.id !== challengerId)
+    .filter(p => p.get("online") || playerIsGM(p.id));
+
+  const buttons = players.map(p => {
+    const name = p.get("_displayname") || "Unknown";
+    return `[${name}](!ssss-target ${contestId} ${p.id})`;
+  });
+
+  buttons.unshift(`[GM](!ssss-target ${contestId} GM)`);
+
+  return buttons.join(" ");
+}
+
+function makePips(contest) {
+  const out = {};
+
+  const activeSlots =
+    contest.bestOf === 1 ? [3] :
+    contest.bestOf === 3 ? [2, 3, 4] :
+    [1, 2, 3, 4, 5];
+
+  const results = contest.pipResults || [];
+
+  activeSlots.forEach((slot, index) => {
+    const result = results[index] || "empty";
+    out[`pip${slot}_${result}`] = "1";
+  });
+
+  return out;
+}
+
+function pipTemplateFields(pips) {
+  return Object.keys(pips)
+    .filter(key => pips[key])
+    .map(key => `{{${key}=1}}`)
+    .join(" ");
+}
+
+function askThrow(contestId, reason) {
+  const contest = state.SSSS_RPS[contestId];
+  if (!contest) return;
+
+  contest.playerChoice = null;
+  contest.opponentChoice = null;
+
+  const label = reason || `Round ${contest.round}`;
+
+  sendChat(
+    "Stones, Scrolls, Swords",
+    `/w "${contest.playerWho}" ${label}. Choose your throw for ${contest.skill} (${contest.stat} ${signed(contest.modifier)}). Series: Player ${contest.playerScore} / ${contest.opponentName} ${contest.opponentScore}. ${makeButtons(contestId, "player")}`
+  );
+
+  if (contest.opponentId === "GM") {
+    sendChat(
+      "Stones, Scrolls, Swords",
+      `/w gm ${label}. ${contest.characterName} is challenging you with ${contest.skill} (${contest.stat} ${signed(contest.modifier)}). Series: Player ${contest.playerScore} / GM ${contest.opponentScore}. ${makeButtons(contestId, "opponent")}`
+    );
+  } else {
+    sendChat(
+      "Stones, Scrolls, Swords",
+      `/w "${contest.opponentName}" ${label}. ${contest.characterName} is challenging you with ${contest.skill} (${contest.stat} ${signed(contest.modifier)}). Series: Player ${contest.playerScore} / ${contest.opponentName} ${contest.opponentScore}. ${makeButtons(contestId, "opponent")}`
+    );
+  }
+}
+
+function sendRoundCard(contest, winnerText) {
+  const pips = makePips(contest);
+
+  sendChat(
+    "Stones, Scrolls, Swords",
+    `&{template:ssss-round} {{character=${contest.characterName}}} {{skill=${contest.skill || ""}}} {{winner=${winnerText}}} {{playerthrow=${pretty[contest.playerChoice] || ""}}} {{opponent=${contest.opponentName}}} {{opponentthrow=${pretty[contest.opponentChoice] || ""}}} ${pipTemplateFields(pips)}`
+  );
+}
+
+function finishContest(contestId, playerWinsSeries) {
+  const contest = state.SSSS_RPS[contestId];
+  if (!contest) return;
+
+  const modValue = parseInt(contest.modifier || "0", 10);
+  const throwValue = playerWinsSeries ? 1 : -1;
+  const drawValue = playerWinsSeries ? (contest.draws || 0) : -(contest.draws || 0);
+  const finalValue = modValue + throwValue + drawValue;
+
+  const pips = makePips(contest);
+
+  const result = playerWinsSeries
+    ? `${contest.characterName} wins`
+    : `${contest.opponentName} wins`;
+
+  const formula = `${signed(modValue)} ${signed(throwValue)} ${signed(drawValue)} = ${signed(finalValue)}`;
+
+  sendChat(
+    "Stones, Scrolls, Swords",
+    `&{template:ssss-final} {{character=${contest.characterName}}} {{skill=${contest.skill || ""}}} {{winner=${result}}} {{outcome=${signed(finalValue)}}} {{formula=${formula}}} ${pipTemplateFields(pips)}`
+  );
+
+  delete state.SSSS_RPS[contestId];
+}
+
+function resolveContest(contestId) {
+  const contest = state.SSSS_RPS[contestId];
+  if (!contest || !contest.playerChoice || !contest.opponentChoice) return;
+
+  const p = contest.playerChoice;
+  const o = contest.opponentChoice;
+
+  if (p === o) {
+    contest.draws = (contest.draws || 0) + 1;
+    sendRoundCard(contest, "Draw!");
+    askThrow(contestId, "DRAW! Rethrow");
+    return;
+  }
+
+  const playerWinsRound = beats[p] === o;
+
+  if (playerWinsRound) {
+    contest.playerScore += 1;
+    contest.pipResults.push("player");
+  } else {
+    contest.opponentScore += 1;
+    contest.pipResults.push("gm");
+  }
+
+  const roundWinner = playerWinsRound ? "Player" : contest.opponentName;
+
+  sendRoundCard(contest, roundWinner);
+
+  if (contest.playerScore >= contest.targetWins) {
+    finishContest(contestId, true);
+    return;
+  }
+
+  if (contest.opponentScore >= contest.targetWins) {
+    finishContest(contestId, false);
+    return;
+  }
+
+  contest.round += 1;
+  askThrow(contestId, `Round ${contest.round}`);
+}
+
+on("chat:message", msg => {
+  if (msg.type !== "api") return;
+
+  const args = msg.content.split(/\s+/);
+  const command = args.shift();
+
+  if (command === "!ssss-start") {
+    const seriesPenaltyRaw = args.pop() || "0";
+    const outcomePenaltyRaw = args.pop() || "0";
+    const trainedRaw = args.pop() || "0";
+    const modifierRaw = args.pop() || "0";
+    const stat = args.pop() || "";
+    const skill = args.pop() || "";
+    const characterName = args.join(" ") || msg.who;
+
+    const baseModifier = parseInt(modifierRaw, 10) || 0;
+    const outcomePenalty = parseInt(outcomePenaltyRaw, 10) || 0;
+    const seriesPenalty = parseInt(seriesPenaltyRaw, 10) || 0;
+
+    const modifier = baseModifier - outcomePenalty;
+    const trained = trainedRaw === "1";
+
+    const baseBestOf = modifier < 0 ? 1 : 3;
+    const trainedBestOf = trained ? baseBestOf + 2 : baseBestOf;
+    const bestOf = Math.max(1, trainedBestOf - (seriesPenalty * 2));
+    const targetWins = Math.ceil(bestOf / 2);
+
+    const contestId = `${Date.now()}_${Math.floor(Math.random() * 100000)}`;
+
+    state.SSSS_RPS[contestId] = {
+      characterName,
+      skill,
+      stat,
+      modifier,
+      trained,
+      bestOf,
+      targetWins,
+      playerId: msg.playerid,
+      playerWho: msg.who,
+      opponentId: null,
+      opponentName: null,
+      playerChoice: null,
+      opponentChoice: null,
+      playerScore: 0,
+      opponentScore: 0,
+      round: 1,
+      draws: 0,
+      pipResults: []
+    };
+
+    sendChat(
+      "Stones, Scrolls, Swords",
+      `/w "${msg.who}" Choose opponent for ${skill} (${stat} ${signed(modifier)}): ${getOpponentButtons(contestId, msg.playerid)}`
+    );
+
+    return;
+  }
+
+  if (command === "!ssss-target") {
+    const [contestId, opponentId] = args;
+    const contest = state.SSSS_RPS[contestId];
+
+    if (!contest) return;
+
+    if (msg.playerid !== contest.playerId) {
+      sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" This is not your contest.`);
+      return;
+    }
+
+    if (opponentId === "GM") {
+      contest.opponentId = "GM";
+      contest.opponentName = "GM";
+    } else {
+      contest.opponentId = opponentId;
+      contest.opponentName = getPlayerName(opponentId);
+    }
+
+    sendChat(
+      "Stones, Scrolls, Swords",
+      `&{template:default} {{name=Contest Started}} {{Character=${contest.characterName}}} {{Skill=${contest.skill}}} {{Opponent=${contest.opponentName}}} {{Modifier=${signed(contest.modifier)}}} {{Trained=${contest.trained ? "Yes" : "No"}}} {{Series=Best of ${contest.bestOf}}}`
+    );
+
+    askThrow(contestId, "Round 1");
+    return;
+  }
+
+  if (command === "!ssss-pick") {
+    const [contestId, side, choice] = args;
+    const contest = state.SSSS_RPS[contestId];
+
+    if (!contest || !choices.includes(choice)) return;
+
+    if (side === "player") {
+      if (msg.playerid !== contest.playerId) {
+        sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" This is not your contest.`);
+        return;
+      }
+
+      contest.playerChoice = choice;
+      sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" You chose ${pretty[choice]}. Waiting for ${contest.opponentName}...`);
+    }
+
+    if (side === "opponent") {
+      if (contest.opponentId === "GM") {
+        if (!playerIsGM(msg.playerid)) {
+          sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" Only the GM can choose this.`);
+          return;
+        }
+      } else if (msg.playerid !== contest.opponentId) {
+        sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" You are not the opponent for this contest.`);
+        return;
+      }
+
+      contest.opponentChoice = choice;
+      sendChat("Stones, Scrolls, Swords", `/w "${msg.who}" You chose ${pretty[choice]}.`);
+    }
+
+    resolveContest(contestId);
+  }
+});
